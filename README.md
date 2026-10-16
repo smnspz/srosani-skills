@@ -1,24 +1,22 @@
 # Skills
 
-A collection of my personal agent skills. Each skill is a self-contained folder
-and is versioned independently with
+A collection of my personal agent skills. Each skill lives in its own folder at
+the repository root and is versioned independently with
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Layout
 
 ```
-skills/                  one folder per skill
-  <skill-name>/
-    SKILL.md             skill definition; frontmatter holds its version
-templates/
-  SKILL.md               starting point for a new skill
+<skill-name>/
+  SKILL.md               skill definition; frontmatter holds its version
+README.md
 RELEASE_NOTES.md         release history (Keep a Changelog format)
 ```
 
 ## Anatomy of a skill
 
-A skill lives in `skills/<skill-name>/` and is defined by a `SKILL.md` with YAML
-frontmatter:
+A skill lives in `<skill-name>/SKILL.md` at the repository root and is defined
+by YAML frontmatter:
 
 ```markdown
 ---
@@ -40,7 +38,7 @@ Instructions for the agent...
 ## Versioning
 
 Every skill is versioned on its own. This repository follows the `versioning`
-skill ([`skills/versioning/SKILL.md`](skills/versioning/SKILL.md)), which makes
+skill ([`versioning/SKILL.md`](versioning/SKILL.md)), which makes
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) the standard.
 
@@ -54,9 +52,10 @@ In short:
 
 ## Adding a skill
 
-1. Copy `templates/SKILL.md` to `skills/<skill-name>/SKILL.md`.
-2. Set `name` to the folder name and write the `description` and instructions.
-3. Leave `version` at `0.1.0`.
+1. Create `<skill-name>/SKILL.md`.
+2. Add the frontmatter above: set `name` to the folder name, write the
+   `description`, and start at `version: 0.1.0`.
+3. Write the instructions.
 4. Commit.
 
 ## Releasing a skill
@@ -72,5 +71,5 @@ In short:
 Link a skill into your agent's skills directory, for example:
 
 ```bash
-ln -s "$PWD/skills/<skill-name>" ~/.agents/skills/<skill-name>
+ln -s "$PWD/<skill-name>" ~/.agents/skills/<skill-name>
 ```

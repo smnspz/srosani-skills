@@ -10,6 +10,13 @@ skill breaking change or a skill removal is MAJOR, fixes are PATCH.
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-10-16
+
+### Added
+
+- `install` script: symlinks every skill in the repository into a coding
+  agent's skills directory (OpenCode or Claude).
+
 ## [0.7.2] - 2026-10-16
 
 ### Changed

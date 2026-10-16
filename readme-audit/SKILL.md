@@ -1,7 +1,6 @@
 ---
 name: readme-audit
 description: "Audit the project's README.md against recent code changes and decide whether those changes are worth documenting. Inspects the recent diff, compares it against what the README currently describes, and proposes README updates only for changes that affect users of the project (features, CLI/API, configuration, install/build/run steps, dependencies, behavior). When uncertain whether something belongs in the README, always asks the user before editing. Use after committing, before a release, or when the user asks to check that the README is up to date."
-version: 0.1.0
 ---
 
 Audit `README.md` against recent code changes and keep it accurate, without documenting noise.

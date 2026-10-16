@@ -10,6 +10,18 @@ skill breaking change or a skill removal is MAJOR, fixes are PATCH.
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-10-16
+
+### Added
+
+- `scripts/download-vendor-skills.sh`: initialises and updates the vendored
+  skill submodules.
+
+### Changed
+
+- Moved the `install` script to `scripts/install.sh`; it now resolves the
+  repository root from its own location.
+
 ## [1.0.1] - 2026-10-16
 
 ### Changed

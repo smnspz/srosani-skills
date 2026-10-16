@@ -1,4 +1,4 @@
-# Skills
+# srosani-skills
 
 A collection of my personal agent skills, versioned as a single repository with
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).

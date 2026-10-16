@@ -10,6 +10,12 @@ skill breaking change or a skill removal is MAJOR, fixes are PATCH.
 
 ## [Unreleased]
 
+## [0.7.2] - 2026-10-16
+
+### Changed
+
+- Renamed the project to `srosani-skills`.
+
 ## [0.7.1] - 2026-10-16
 
 ### Changed

@@ -10,6 +10,13 @@ skill breaking change or a skill removal is MAJOR, fixes are PATCH.
 
 ## [Unreleased]
 
+## [0.6.1] - 2026-10-16
+
+### Changed
+
+- `coding-standards`: removed project-specific naming so the skill applies to
+  any codebase.
+
 ## [0.6.0] - 2026-10-16
 
 ### Added

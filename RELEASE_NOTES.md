@@ -11,3 +11,10 @@ under `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed` and `Security` as
 described by Keep a Changelog.
 
 ## [Unreleased]
+
+## [versioning 0.1.0] - 2026-10-16
+
+### Added
+
+- `versioning` skill: a repository-agnostic standard for version numbers and
+  release notes, based on Semantic Versioning and Keep a Changelog.

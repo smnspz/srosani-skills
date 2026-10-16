@@ -12,8 +12,6 @@ skills/                  one folder per skill
     SKILL.md             skill definition; frontmatter holds its version
 templates/
   SKILL.md               starting point for a new skill
-scripts/
-  bump.sh                bump a skill's version and log the release
 RELEASE_NOTES.md         release history (Keep a Changelog format)
 ```
 
@@ -41,19 +39,18 @@ Instructions for the agent...
 
 ## Versioning
 
-Every skill is versioned on its own. Skills are instructions rather than code,
-so apply SemVer like this:
+Every skill is versioned on its own. This repository follows the `versioning`
+skill ([`skills/versioning/SKILL.md`](skills/versioning/SKILL.md)), which makes
+[Semantic Versioning](https://semver.org/spec/v2.0.0.html) and
+[Keep a Changelog](https://keepachangelog.com/en/1.1.0/) the standard.
 
-| Bump    | When to use it                                                                                              |
-| ------- | ----------------------------------------------------------------------------------------------------------- |
-| `major` | The skill behaves incompatibly with how it used to (different output, removed behavior, changed interface). |
-| `minor` | New capabilities, guidance or options are added without breaking existing use.                              |
-| `patch` | Fixes, clarifications, typos and other changes that don't alter intent.                                     |
+In short:
 
-New skills start at `0.1.0`; promote to `1.0.0` when you consider the skill
-stable. A release is complete when the version is bumped, the change is
-described in `RELEASE_NOTES.md`, and the release is tagged
-`<skill-name>@v<version>`.
+- The `version` field in a skill's `SKILL.md` frontmatter is the single source of truth.
+- New skills start at `0.1.0`.
+- Bump MAJOR for incompatible behavior, MINOR for additive changes, PATCH for fixes.
+- Record the change under a dated heading in `RELEASE_NOTES.md`.
+- Tag the release `<skill-name>@v<version>`.
 
 ## Adding a skill
 
@@ -64,19 +61,11 @@ described in `RELEASE_NOTES.md`, and the release is tagged
 
 ## Releasing a skill
 
-```bash
-scripts/bump.sh <skill-name> patch            # 0.1.0 -> 0.1.1
-scripts/bump.sh <skill-name> minor --tag      # 0.1.1 -> 0.2.0, tag it
-scripts/bump.sh <skill-name> --set 1.0.0 --tag --yes
-scripts/bump.sh <skill-name> --current        # print the current version
-```
-
-`bump.sh` updates `version` in the skill's `SKILL.md`, adds a dated section to
-`RELEASE_NOTES.md`, and, with `--tag`, creates the `<skill-name>@v<version>`
-git tag. Use `--dry-run` to preview.
-
-After bumping, describe the changes under the new heading in `RELEASE_NOTES.md`
-and commit.
+1. Choose the bump with the `versioning` skill.
+2. Update `version` in the skill's `SKILL.md`.
+3. Add a `## [<skill-name> <version>] - YYYY-MM-DD` section to `RELEASE_NOTES.md`
+   describing the change.
+4. Commit, then tag: `git tag -a <skill-name>@v<version> -m "<skill-name> <version>"`.
 
 ## Installing a skill
 

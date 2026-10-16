@@ -7,6 +7,13 @@ and this skill adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-10-16
+
+### Added
+
+- Collection versioning: a repository-level `VERSION` and changelog, bumped by
+  the most significant change across artifacts.
+
 ## [0.1.0] - 2026-10-16
 
 ### Added

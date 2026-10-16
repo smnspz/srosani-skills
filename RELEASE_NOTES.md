@@ -10,6 +10,13 @@ each skill lives in that skill's own `CHANGELOG.md`.
 
 ## [Unreleased]
 
+## [readme-audit 0.1.0] - 2026-10-16
+
+### Added
+
+- `readme-audit` skill: audits `README.md` against recent code changes and
+  proposes updates only for changes that affect users.
+
 ## [versioning 0.1.0] - 2026-10-16
 
 ### Added

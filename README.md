@@ -9,8 +9,9 @@ the repository root and is versioned independently with
 ```
 <skill-name>/
   SKILL.md               skill definition; frontmatter holds its version
+  CHANGELOG.md           that skill's release history (Keep a Changelog)
 README.md
-RELEASE_NOTES.md         release history (Keep a Changelog format)
+RELEASE_NOTES.md         repository-level release index
 ```
 
 ## Anatomy of a skill
@@ -47,24 +48,28 @@ In short:
 - The `version` field in a skill's `SKILL.md` frontmatter is the single source of truth.
 - New skills start at `0.1.0`.
 - Bump MAJOR for incompatible behavior, MINOR for additive changes, PATCH for fixes.
-- Record the change under a dated heading in `RELEASE_NOTES.md`.
+- Record the change in the skill's own `CHANGELOG.md`, and add a brief heading to the root `RELEASE_NOTES.md`.
 - Tag the release `<skill-name>@v<version>`.
 
 ## Adding a skill
 
-1. Create `<skill-name>/SKILL.md`.
-2. Add the frontmatter above: set `name` to the folder name, write the
-   `description`, and start at `version: 0.1.0`.
-3. Write the instructions.
-4. Commit.
+1. Create `<skill-name>/SKILL.md` and `<skill-name>/CHANGELOG.md`.
+2. In `SKILL.md`, add the frontmatter above: set `name` to the folder name,
+   write the `description`, and start at `version: 0.1.0`.
+3. In `CHANGELOG.md`, add the header and an `## [Unreleased]` section followed by
+   `## [0.1.0] - YYYY-MM-DD`.
+4. Write the instructions.
+5. Commit.
 
 ## Releasing a skill
 
 1. Choose the bump with the `versioning` skill.
 2. Update `version` in the skill's `SKILL.md`.
-3. Add a `## [<skill-name> <version>] - YYYY-MM-DD` section to `RELEASE_NOTES.md`
-   describing the change.
-4. Commit, then tag: `git tag -a <skill-name>@v<version> -m "<skill-name> <version>"`.
+3. In the skill's `CHANGELOG.md`, rename `## [Unreleased]` to
+   `## [<version>] - YYYY-MM-DD` and open a fresh `## [Unreleased]` above it.
+4. Add a brief `## [<skill-name> <version>] - YYYY-MM-DD` heading to the root
+   `RELEASE_NOTES.md`.
+5. Commit, then tag: `git tag -a <skill-name>@v<version> -m "<skill-name> <version>"`.
 
 ## Installing a skill
 

@@ -34,7 +34,7 @@ Pick the one that fits the project, and only that one:
 Rules:
 
 - Never duplicate the version in several places. If other files must show it, generate or sync them from the source.
-- If artifacts are released independently, each gets its own version and its own changelog heading. Do not force a single repository-wide number on them.
+- If artifacts are released independently, each gets its own version and its own changelog (see section 3). Do not force a single repository-wide number on them.
 - A new project starts at `0.1.0`. Reach `1.0.0` only once the public surface is stable.
 
 ## 2. Decide the next version
@@ -54,15 +54,24 @@ Guidance:
 - Bump exactly once per release, right before releasing. Never reuse, skip, or move a released version.
 - Pre-releases use SemVer pre-release identifiers: `1.0.0-alpha.1`, `1.0.0-rc.2`. Build metadata (`+build.5`) never affects precedence.
 
-## 3. Maintain the changelog
+## 3. Maintain a changelog per versioned unit
 
-Keep one changelog in the repository root. Choose `CHANGELOG.md` or
-`RELEASE_NOTES.md`, then use that name everywhere. Its shape:
+Every versioned unit keeps its own changelog as `CHANGELOG.md`, next to the
+unit. If the whole repository is one unit, that is a single root `CHANGELOG.md`.
+If artifacts are versioned independently — a monorepo, a plugin or skill
+collection — each artifact gets its own `CHANGELOG.md` in its folder.
+
+A repository may additionally keep a root `RELEASE_NOTES.md` that aggregates
+releases across artifacts. Treat it as an index: one brief heading per release.
+The artifact's own `CHANGELOG.md` is the authoritative detail, so never maintain
+two full changelogs for the same unit.
+
+Shape:
 
 ```markdown
 # Changelog
 
-All notable changes to this project are documented in this file.
+All notable changes to <unit> are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -90,7 +99,7 @@ Rules:
 - Call out breaking changes, deprecations, and removals explicitly — those are the entries consumers must see.
 - Keep it curated. Exclude internal noise (comment typos, merge commits, CI churn) unless it matters to users.
 - Keep yanked releases listed and marked, e.g. `## [1.2.3] - 2026-10-16 [YANKED]`.
-- When several artifacts share one changelog, prefix each heading with the artifact name: `## [<artifact> <version>] - <date>`.
+- In an aggregate `RELEASE_NOTES.md`, prefix each heading with the artifact name: `## [<artifact> <version>] - <date>`.
 - Optionally link each version to its tag or compare URL at the bottom of the file.
 
 ## 4. Release checklist
@@ -100,7 +109,7 @@ Run these steps in order for every release:
 1. Confirm the working tree is clean and you are on the release branch.
 2. Decide the bump (section 2) from the changes since the last release.
 3. Apply the new version to the source of truth (section 1) and sync any generated copies.
-4. In the changelog, rename `## [Unreleased]` to `## [<version>] - <today>`, then open a fresh empty `## [Unreleased]` above it.
+4. In the unit's changelog, rename `## [Unreleased]` to `## [<version>] - <today>`, then open a fresh empty `## [Unreleased]` above it. If the repository also keeps a root release-notes file, add a brief heading there.
 5. Commit with a conventional release message, e.g. `chore(release): <version>`.
 6. Tag the commit (section 5).
 7. Push the commit and the tag.
@@ -127,7 +136,7 @@ git push origin v1.4.0
 
 ## 6. Rules that prevent pain
 
-- One source of truth for the version, one changelog, one tagging scheme.
+- One source of truth for the version, one changelog per versioned unit, one tagging scheme.
 - Update the changelog in the change that introduces the work, or at the latest before the release — never reconstruct it later from `git log`.
 - Do not let `git log` be the changelog.
 - A version number means the same thing to every consumer: incompatible → MAJOR, additive → MINOR, fix → PATCH.

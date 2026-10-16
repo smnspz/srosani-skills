@@ -4,14 +4,16 @@
 # skills directory.
 #
 # Usage:
-#   ./install <agent>
-#   ./install help
+#   scripts/install.sh <agent>
+#   scripts/install.sh help
 
 set -euo pipefail
 
 readonly SCRIPT_NAME="$(basename -- "${BASH_SOURCE[0]}")"
 readonly SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
-readonly SKILLS_DIR="$SCRIPT_DIR/skills"
+# The skills live at the repository root, one level up from this script.
+readonly REPO_ROOT="$(cd -- "$SCRIPT_DIR/.." && pwd)"
+readonly SKILLS_DIR="$REPO_ROOT/skills"
 
 # resolve_agent_dir <agent>
 # Print the destination skills directory for the given agent, or return 1 when

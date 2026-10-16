@@ -3,9 +3,9 @@ name: coding-standards
 description: Coding standards — language-agnostic principles for readability, naming, documentation, control flow, and safe editing across every language in a codebase.
 ---
 
-# Coding Standards (AiVu)
+# Coding Standards
 
-Language-agnostic conventions applied across all AiVu.AppsLibs codebases (C/C++, TypeScript/JavaScript, Python, and any other language present). Language-specific detail lives in the dedicated steering files (`c_cpp`, `js_ts`, `python`); this file captures the principles that hold everywhere.
+Language-agnostic conventions that apply to codebases in any language (C/C++, TypeScript/JavaScript, Python, and others). Language-specific detail belongs in dedicated per-language conventions; this file captures the principles that hold everywhere.
 
 ## General Principles
 

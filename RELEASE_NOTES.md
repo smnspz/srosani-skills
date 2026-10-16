@@ -14,9 +14,8 @@ skill breaking change or a skill removal is MAJOR, fixes are PATCH.
 
 ### Added
 
-- `coding-standards` skill: language-agnostic coding standards (readability,
-  naming, documentation, control flow, safe editing), copied from the `aivu`
-  steering file.
+- `coding-standards` skill: language-agnostic coding standards for readability,
+  naming, documentation, control flow, and safe editing.
 
 ## [0.5.0] - 2026-10-16
 

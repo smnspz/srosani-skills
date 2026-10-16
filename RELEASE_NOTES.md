@@ -10,6 +10,13 @@ skill breaking change or a skill removal is MAJOR, fixes are PATCH.
 
 ## [Unreleased]
 
+## [0.7.1] - 2026-10-16
+
+### Changed
+
+- Moved all skills into a `skills/` directory and re-pointed the vendored skill
+  symlinks to match.
+
 ## [0.7.0] - 2026-10-16
 
 ### Added

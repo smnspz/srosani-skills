@@ -7,22 +7,23 @@ A collection of my personal agent skills, versioned as a single repository with
 
 ```
 VERSION                    repository version (single source of truth)
-<skill-name>/
-  SKILL.md                 skill definition
+skills/
+  <skill-name>/
+    SKILL.md               skill definition
+  grilling                 symlink into ../vendor/mattpocock-skills/skills/productivity/
+  grill-me
+  wait-what
+  writing-for-agents
 README.md
 RELEASE_NOTES.md           changelog for every skill change (Keep a Changelog)
 vendor/
   mattpocock-skills/       git submodule: github.com/mattpocock/skills (MIT)
-grilling                   symlink into vendor/mattpocock-skills/skills/productivity/
-grill-me
-wait-what
-writing-for-agents
 ```
 
 ## Anatomy of a skill
 
-A skill lives in `<skill-name>/SKILL.md` at the repository root and is defined
-by YAML frontmatter:
+A skill lives in `skills/<skill-name>/SKILL.md` and is defined by YAML
+frontmatter:
 
 ```markdown
 ---
@@ -41,7 +42,7 @@ Instructions for the agent...
 ## Third-party skills
 
 Skills not authored here are vendored as git submodules under `vendor/` and
-exposed at the top level with a symlink, so they look like any other
+exposed in `skills/` with a symlink, so they look like any other
 `<skill-name>/SKILL.md`.
 
 | Skill | Source | License |
@@ -74,12 +75,12 @@ into the repository version by the most significant change in the release:
 - fixes only → PATCH
 
 Both the version and the changelog follow the `versioning` skill
-([`versioning/SKILL.md`](versioning/SKILL.md)): Semantic Versioning and Keep a
-Changelog.
+([`skills/versioning/SKILL.md`](skills/versioning/SKILL.md)): Semantic
+Versioning and Keep a Changelog.
 
 ## Adding a skill
 
-1. Create `<skill-name>/SKILL.md` with the frontmatter above.
+1. Create `skills/<skill-name>/SKILL.md` with the frontmatter above.
 2. Write the instructions.
 3. Bump `VERSION` (MINOR) and add an entry to `RELEASE_NOTES.md`.
 4. Commit.
@@ -97,5 +98,5 @@ Changelog.
 Link a skill into your agent's skills directory, for example:
 
 ```bash
-ln -s "$PWD/<skill-name>" ~/.agents/skills/<skill-name>
+ln -s "$PWD/skills/<skill-name>" ~/.agents/skills/<skill-name>
 ```

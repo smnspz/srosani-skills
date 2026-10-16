@@ -6,11 +6,14 @@ A collection of my personal agent skills, versioned as a single repository with
 ## Layout
 
 ```
-VERSION                  repository version (single source of truth)
+VERSION                    repository version (single source of truth)
 <skill-name>/
-  SKILL.md               skill definition
+  SKILL.md                 skill definition
 README.md
-RELEASE_NOTES.md         changelog for every skill change (Keep a Changelog)
+RELEASE_NOTES.md           changelog for every skill change (Keep a Changelog)
+vendor/
+  mattpocock-skills/       git submodule: github.com/mattpocock/skills (MIT)
+grilling                   symlink -> vendor/mattpocock-skills/skills/productivity/grilling
 ```
 
 ## Anatomy of a skill
@@ -31,6 +34,28 @@ Instructions for the agent...
 
 - `name` — kebab-case, identical to the folder name.
 - `description` — what the skill does and when it should trigger.
+
+## Third-party skills
+
+Skills not authored here are vendored as git submodules under `vendor/` and
+exposed at the top level with a symlink, so they look like any other
+`<skill-name>/SKILL.md`.
+
+| Skill | Source | License |
+| --- | --- | --- |
+| `grilling` | [mattpocock/skills](https://github.com/mattpocock/skills) | MIT |
+
+After cloning, initialise the submodules:
+
+```bash
+git submodule update --init --recursive
+```
+
+Update a vendored skill to the latest upstream commit:
+
+```bash
+git submodule update --remote vendor/mattpocock-skills
+```
 
 ## Versioning
 

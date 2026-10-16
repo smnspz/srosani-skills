@@ -10,6 +10,13 @@ skill breaking change or a skill removal is MAJOR, fixes are PATCH.
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-10-16
+
+### Added
+
+- `grilling` skill, vendored from `mattpocock/skills` (MIT) as a git submodule
+  at `vendor/mattpocock-skills` and exposed at the top level via `grilling`.
+
 ## [0.3.0] - 2026-10-16
 
 ### Changed

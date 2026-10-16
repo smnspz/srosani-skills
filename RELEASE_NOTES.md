@@ -10,6 +10,13 @@ skill breaking change or a skill removal is MAJOR, fixes are PATCH.
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-10-16
+
+### Added
+
+- `grill-me`, `wait-what` and `writing-for-agents` skills, also vendored from
+  `mattpocock/skills` and exposed at the top level via symlinks.
+
 ## [0.4.0] - 2026-10-16
 
 ### Added

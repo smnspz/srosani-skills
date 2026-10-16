@@ -13,7 +13,10 @@ README.md
 RELEASE_NOTES.md           changelog for every skill change (Keep a Changelog)
 vendor/
   mattpocock-skills/       git submodule: github.com/mattpocock/skills (MIT)
-grilling                   symlink -> vendor/mattpocock-skills/skills/productivity/grilling
+grilling                   symlink into vendor/mattpocock-skills/skills/productivity/
+grill-me
+wait-what
+writing-for-agents
 ```
 
 ## Anatomy of a skill
@@ -44,6 +47,9 @@ exposed at the top level with a symlink, so they look like any other
 | Skill | Source | License |
 | --- | --- | --- |
 | `grilling` | [mattpocock/skills](https://github.com/mattpocock/skills) | MIT |
+| `grill-me` | [mattpocock/skills](https://github.com/mattpocock/skills) | MIT |
+| `wait-what` | [mattpocock/skills](https://github.com/mattpocock/skills) | MIT |
+| `writing-for-agents` | [mattpocock/skills](https://github.com/mattpocock/skills) | MIT |
 
 After cloning, initialise the submodules:
 

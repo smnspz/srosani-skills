@@ -10,6 +10,19 @@ skill breaking change or a skill removal is MAJOR, fixes are PATCH.
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-10-16
+
+### Added
+
+- `c-cpp-best-practices` skill: C/C++ conventions (naming, `nullptr`, const
+  correctness, Doxygen comments, namespace and class layout, memory management,
+  warnings-as-errors policy).
+- `js-ts-best-practices` skill: TypeScript/JavaScript conventions (Node version
+  via nvm, JSDoc/TSDoc).
+- `python-best-practices` skill: Python conventions (pyproject.toml packaging,
+  project-local virtual environments, `.gitignore` baseline, Google-style
+  docstrings).
+
 ## [0.6.1] - 2026-10-16
 
 ### Changed

@@ -10,6 +10,14 @@ skill breaking change or a skill removal is MAJOR, fixes are PATCH.
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-10-17
+
+### Changed
+
+- `c-cpp-best-practices`: the nested-namespace rule now prescribes the C++17
+  `namespace A::B` form instead of `namespace A { namespace B`, which cannot
+  survive Allman brace reformatting.
+
 ## [1.1.0] - 2026-10-16
 
 ### Added

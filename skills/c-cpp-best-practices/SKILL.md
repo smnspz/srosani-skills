@@ -154,25 +154,21 @@ This rule applies to both new and existing code being modified.
 
 ## Documentation Comments (Doxygen)
 
-Use `///` with XML-style tags for documentation comments. Do **not** use Javadoc-style `/** ... */` comments.
+Use `///` with classic Doxygen commands (`\brief`, `\param`, `\return`) for documentation comments. Do **not** use XML-style tags or Javadoc-style `/** ... */` comments.
 
 ### Functions and methods
 
 ```cpp
-/// <summary>
-/// Initializes the module context for the specified device.
-/// </summary>
-/// <param name="context">Pointer to the module context.</param>
-/// <returns>0 on success, negative error code on failure.</returns>
+/// \brief Initializes the module context for the specified device.
+/// \param context Pointer to the module context.
+/// \return 0 on success, negative error code on failure.
 int InitializeContext(ModuleContext *context);
 ```
 
 ### Classes and structs
 
 ```cpp
-/// <summary>
-/// Wraps a module handle for RAII-based lifetime management.
-/// </summary>
+/// \brief Wraps a module handle for RAII-based lifetime management.
 class ModuleHandle final
 {
     // ...
@@ -181,32 +177,24 @@ class ModuleHandle final
 
 ### Enum values and member variables
 
-Use a `/// <summary>` block above each enum value and each member variable:
+Use a `/// \brief` comment above each enum value and each member variable:
 
 ```cpp
 enum class ReturnCode
 {
-    /// <summary>
-    /// Operation completed successfully.
-    /// </summary>
+    /// \brief Operation completed successfully.
     Ok = 0,
 
-    /// <summary>
-    /// A generic error occurred.
-    /// </summary>
+    /// \brief A generic error occurred.
     GenericError = -1,
 
-    /// <summary>
-    /// An invalid argument was passed.
-    /// </summary>
+    /// \brief An invalid argument was passed.
     InvalidArg = -2
 };
 ```
 
 ```cpp
-/// <summary>
-/// Name of the module to load.
-/// </summary>
+/// \brief Name of the module to load.
 std::string ModuleName_;
 ```
 
@@ -215,29 +203,27 @@ std::string ModuleName_;
 The same `///` style applies to C headers (`.h`). For `extern "C"` function declarations, place the doc comment above the declaration:
 
 ```c
-/// <summary>
-/// Initializes the module context.
-/// </summary>
+/// \brief Initializes the module context.
 EXPORT_VISIBILITY
 int initialize_context(ModuleContext *);
 ```
 
 ## Nested Namespaces
 
-When nesting namespaces, place all `namespace` keywords on the same line, with the opening brace on the next line. All closing braces go on a single line, separated by spaces, with no closing comment.
+When nesting namespaces, use the C++17 nested namespace definition: put the names on one line separated by `::`, with the opening brace on the next line and a single closing brace with no closing comment. The older `namespace A { namespace B` form does not survive brace reformatting — an Allman-style formatter moves each opening brace onto its own line, silently turning it into the form this rule rejects.
 
 ```cpp
 // Good
-namespace MyLibrary { namespace Test
+namespace MyLibrary::Test
 {
 
     // ...
 
-} }
+}
 ```
 
 ```cpp
-// Bad — each namespace on its own line with separate braces
+// Bad — one namespace per line, with separate braces
 namespace MyLibrary
 {
 namespace Test
